@@ -122,19 +122,6 @@ method.calculateVIX= function(candle, period) {
 }
 
 method.gannswing= function(candle, period) {
-  // remove old data
-  if(this.swing.lowma.length >= 5) {
-    this.swing.lowma.shift()
-    this.swing.highma.shift()
-    this.swing.fastlowma.shift()
-    this.swing.fasthighma.shift()
-  }
-  if(this.swing.lowma.length >= 5) {
-    this.swing.lowma.shift()
-    this.swing.highma.shift()
-    this.swing.fastlowma.shift()
-    this.swing.fasthighma.shift()
-  }
   var loma= function(period) {
     return talib.execute({
         name: "SMA",
@@ -244,7 +231,15 @@ method.update = function(candle) {
 }
 
 // For debugging purposes.
-method.log = function() {}
+// For debugging purposes.
+method.log = function() {
+    log.debug('gannswing:    buycount: ' + this.swing.buycount
+                    + ' sellcount: ' + this.swing.sellcount);
+    log.debug('              tradebuy: ' + this.swing.tradebuy
+                    + ' tradesell: ' + this.swing.tradesell);
+    log.debug('              VIX t: ' + this.history.wvf[this.history.wvf.length-1]
+                    + ' VIX t-1: ' + this.history.wvf[this.history.wvf.length-2]);
+}
 
 // Based on the newly calculated information, check if we should
 // update or not.
