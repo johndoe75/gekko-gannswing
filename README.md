@@ -49,6 +49,8 @@ config['gannswing'] = {
 
 and adjust it to your needs.  For certain exchanges and pairs you need to play around with these settings and Gekko's `config.tradingAdvisor.candleSize`.  **Always test your changes in a backtest per `node gekko -b`**.
 
+**Use this method at your own risk!  Especially if you're going to let Gekko do the trades for you!  I'm not responsible for any loss you gain.**
+
 ## Credits & License
 
 Alexander Zschach <software@zschach.net>
